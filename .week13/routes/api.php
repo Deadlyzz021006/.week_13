@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiUsersController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,9 +22,11 @@ Route::controller(ApiUsersController::class)
   ->prefix('/users')
   ->group(function () {
 
-    Route::get('/', 'index');
-    Route::get('/{id}', 'show');
-    Route::post('/', 'store');
-    Route::put('/{id}', 'update');
+    Route::get('/users', 'index');
+    Route::get('/users{id}', 'show');
+    Route::post('/users', 'store');
+    Route::put('/users{id}', 'update');
     Route::delete('/{id}', 'destroy');
   });
+  Route::resource('Api', 'ApiController');
+
